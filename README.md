@@ -1,4 +1,4 @@
-# Neovim from scratch
+# Neovim from scratch NO!
 
 **Update** When I initially created this repo I didn't anticipate the amount of breaking changes, if you'd like to use the same basic config as this one as a base I recommend my new repo: [nvim-basic-ide](https://github.com/LunarVim/nvim-basic-ide)
 

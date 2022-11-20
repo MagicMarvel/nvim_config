@@ -19,11 +19,11 @@ vim.g.maplocalleader = " "
 --   command_mode = "c",
 
 -- 快速保存
-keymap("","<C-s>","<cmd>w<cr>",opts)
-keymap("i","<C-s>","<cmd>w<cr>",opts)
+keymap("", "<C-s>", "<cmd>w<cr>", opts)
+keymap("i", "<C-s>", "<cmd>w<cr>", opts)
 -- 快速撤销
-keymap("","<C-z>","<cmd>:undo<cr>",opts)
-keymap("i","<C-z>","<cmd>:undo<cr>",opts)
+keymap("", "<C-z>", "<cmd>:undo<cr>", opts)
+keymap("i", "<C-z>", "<cmd>:undo<cr>", opts)
 
 
 -- Normal --
@@ -32,6 +32,10 @@ keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
+keymap("i", "<C-h>", "<esc><C-w>h", opts)
+keymap("i", "<C-j>", "<esc><C-w>j", opts)
+keymap("i", "<C-k>", "<esc><C-w>k", opts)
+keymap("i", "<C-l>", "<esc><C-w>l", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
@@ -48,10 +52,10 @@ keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 
 -- easy select all
-keymap("n","<C-a>","<esc>ggVG",opts)
+keymap("n", "<C-a>", "<esc>ggVG", opts)
 
 -- Insert --
--- Press jk fast to exit insert mode 
+-- Press jk fast to exit insert mode
 keymap("i", "jk", "<ESC>", opts)
 keymap("i", "kj", "<ESC>", opts)
 keymap("i", "jj", "<ESC>", opts)
@@ -62,7 +66,7 @@ keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
 -- easy copy
-keymap("v","<C-c>","y",opts)
+keymap("v", "<C-c>", "y", opts)
 -- fix copy problem between window and linux
 vim.opt.clipboard = "unnamedplus"
 
@@ -84,4 +88,3 @@ keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
 keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
-

@@ -9,10 +9,7 @@ local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
 
 null_ls.setup({
-	debug = true,
-  cmd = {
-    "nvim"
-  },
+	debug = false,
 	sources = {
     formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } })
 	},

@@ -79,7 +79,7 @@ return packer.startup(function(use)
   use { "williamboman/mason-lspconfig.nvim", commit = "0051870dd728f4988110a1b2d47f4a4510213e31" }
   use { "jose-elias-alvarez/null-ls.nvim", commit = "07d4ed4c6b561914aafd787453a685598bec510f" ,
     config = function()
-    require("null-ls").setup()
+      require("null-ls").setup()
     end,
     requires = { "nvim-lua/plenary.nvim" }
   } -- for formatters and linters

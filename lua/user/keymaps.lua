@@ -20,7 +20,7 @@ vim.g.maplocalleader = " "
 
 -- 快速保存
 keymap("", "<C-s>", "<cmd>w<cr>", opts)
-keymap("i", "<C-s>", "<cmd>w<cr>", opts)
+keymap("i", "<C-s>", "<cmd>w<cr><esc>", opts)
 -- 快速撤销
 keymap("", "<C-z>", "<cmd>:undo<cr>", opts)
 keymap("i", "<C-z>", "<cmd>:undo<cr>", opts)

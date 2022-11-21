@@ -83,7 +83,6 @@ return packer.startup(function(use)
         end,
         requires = { "nvim-lua/plenary.nvim" }
     } -- for formatters and linters
-    use { "RRethy/vim-illuminate", commit = "a2e8476af3f3e993bb0d6477438aad3096512e42" }
     use {
         "folke/trouble.nvim",
         requires = "kyazdani42/nvim-web-devicons",
@@ -95,6 +94,7 @@ return packer.startup(function(use)
             }
         end
     }
+    use { "RRethy/vim-illuminate", commit = "a2e8476af3f3e993bb0d6477438aad3096512e42" }
 
     -- Telescope
     use { "nvim-telescope/telescope.nvim", commit = "76ea9a898d3307244dce3573392dcf2cc38f340f" }
@@ -124,6 +124,9 @@ return packer.startup(function(use)
         end,
         commit = "90db1b2c61b820e230599a04fedcd2679e64bd07"
     }
+
+    -- A fancy, configurable, notification manager for Neovim
+    use { "rcarriga/nvim-notify" }
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

@@ -18,7 +18,6 @@ null_ls.setup({
         -- 连接上语言服务器后，开启保存就自动格式化的配置
         local augroup = vim.api.nvim_create_augroup("LspFormatting", { clear = false })
         if client.supports_method("textDocument/formatting") then
-            vim.notify("open format with null_ls")
             vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
             vim.api.nvim_create_autocmd("BufWritePre", {
                 group = augroup,

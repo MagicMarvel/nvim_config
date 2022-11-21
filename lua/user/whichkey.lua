@@ -171,7 +171,7 @@ local mappings = {
         C = { "<cmd>Telescope commands<cr>", "Commands" },
     },
 
-    t = {
+    T = {
         name = "Terminal",
         n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
         u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
@@ -181,6 +181,16 @@ local mappings = {
         h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
         v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
     },
+
+    t = {
+        name = "Diagnostics",
+        t = { "<cmd>TroubleToggle<cr>", "trouble" },
+        w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "workspace" },
+        d = { "<cmd>TroubleToggle document_diagnostics<cr>", "document" },
+        q = { "<cmd>TroubleToggle quickfix<cr>", "quickfix" },
+        l = { "<cmd>TroubleToggle loclist<cr>", "loclist" },
+        r = { "<cmd>TroubleToggle lsp_references<cr>", "references" },
+    }
 }
 
 which_key.setup(setup)

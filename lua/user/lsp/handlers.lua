@@ -83,15 +83,16 @@ M.on_attach = function(client, bufnr)
     lsp_keymaps(bufnr)
 
     -- 连接上语言服务器后，开启保存就自动格式化的配置
-    local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+    local augroup = vim.api.nvim_create_augroup("LspFormatting", { clear = false })
     if client.supports_method("textDocument/formatting") then
+        vim.notify("open format with LSP")
         vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
         vim.api.nvim_create_autocmd("BufWritePre", {
             group = augroup,
             buffer = bufnr,
             callback = function()
                 -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-                vim.lsp.buf.format()
+                vim.lsp.buf.format({ bufnr = bufnr })
             end,
         })
     end

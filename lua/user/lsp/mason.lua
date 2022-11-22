@@ -1,3 +1,4 @@
+-- https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
 local servers = {
     "sumneko_lua",
     "cssls",
@@ -7,6 +8,8 @@ local servers = {
     "bashls",
     "jsonls",
     "yamlls",
+    "tailwindcss",
+    "clangd"
 }
 
 local settings = {

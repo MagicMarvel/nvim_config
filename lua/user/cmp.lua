@@ -2,18 +2,17 @@ local cmp_status_ok, cmp = pcall(require, "cmp")
 if not cmp_status_ok then
     return
 end
-
 local snip_status_ok, luasnip = pcall(require, "luasnip")
 if not snip_status_ok then
     return
 end
 
-require("luasnip/loaders/from_vscode").lazy_load()
 
 local check_backspace = function()
     local col = vim.fn.col "." - 1
     return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
 end
+
 
 --   פּ ﯟ   some other good icons
 local kind_icons = {
@@ -45,6 +44,22 @@ local kind_icons = {
 }
 -- find more here: https://www.nerdfonts.com/cheat-sheet
 
+vim.cmd [[" gray
+highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080
+" blue
+highlight! CmpItemAbbrMatch guibg=NONE guifg=#569CD6
+highlight! link CmpItemAbbrMatchFuzzy CmpItemAbbrMatch
+" light blue
+highlight! CmpItemKindVariable guibg=NONE guifg=#9CDCFE
+highlight! link CmpItemKindInterface CmpItemKindVariable
+highlight! link CmpItemKindText CmpItemKindVariable
+" pink
+highlight! CmpItemKindFunction guibg=NONE guifg=#C586C0
+highlight! link CmpItemKindMethod CmpItemKindFunction
+" front
+highlight! CmpItemKindKeyword guibg=NONE guifg=#D4D4D4
+highlight! link CmpItemKindProperty CmpItemKindKeyword
+highlight! link CmpItemKindUnit CmpItemKindKeyword]]
 
 cmp.setup {
     snippet = {
@@ -98,10 +113,8 @@ cmp.setup {
     formatting = {
         fields = { "kind", "abbr", "menu" },
         format = function(entry, vim_item)
-            -- Kind icons
-            vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-            -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
             -- This concatonates the icons with the name of the item kind
+            vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
             vim_item.menu = ({
                 nvim_lsp = "[LSP]",
                 luasnip = "[Snippet]",
@@ -111,6 +124,7 @@ cmp.setup {
             return vim_item
         end,
     },
+
     sources = {
         { name = "nvim_lsp" },
         { name = "luasnip" },
@@ -127,7 +141,8 @@ cmp.setup {
         },
     },
     experimental = {
-        ghost_text = false,
+        ghost_text = true,
         native_menu = false,
     },
+    preselect = cmp.PreselectMode.Item
 }

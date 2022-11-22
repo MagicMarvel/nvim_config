@@ -13,6 +13,7 @@ null_ls.setup({
     debug = false,
     sources = {
         formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } })
+
     },
     on_attach = function(client, bufnr)
         -- 连接上语言服务器后，开启保存就自动格式化的配置

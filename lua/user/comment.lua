@@ -4,9 +4,8 @@ if not status_ok then
 end
 
 comment.setup {
-    pre_hook = function(ctx)
+    --[[ pre_hook = function(ctx)
         local U = require "Comment.utils"
-
         local status_utils_ok, utils = pcall(require, "ts_context_commentstring.utils")
         if not status_utils_ok then
             return
@@ -28,5 +27,15 @@ comment.setup {
             key = ctx.ctype == U.ctype.line and "__default" or "__multiline",
             location = location,
         }
-    end,
+    end, ]]
+
+    --[[pre_hook = function()
+        local status_ok, ret = pcall(require, "ts_context_commentstring.integrations.comment_nvim");
+        if not status_ok then
+            return;
+        end
+        return ret.create_pre_hook();
+    end]]
+
+    pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
 }

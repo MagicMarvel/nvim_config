@@ -1,3 +1,5 @@
+#!/usr/bin/env lua
+
 require "user.options"
 require "user.keymaps"
 require "user.plugins"
@@ -22,3 +24,4 @@ require "user.autocommands"
 require "user.hop-config"
 require "user.notify"
 require "user.ts-autotag"
+require "user.general"

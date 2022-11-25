@@ -53,14 +53,13 @@ return packer.startup(function(use)
     use { "lewis6991/impatient.nvim", commit = "b842e16ecc1a700f62adb9802f8355b99b52a5a6" }
     use { "lukas-reineke/indent-blankline.nvim", commit = "db7cbcb40cc00fc5d6074d7569fb37197705e7f6" }
     use { "goolord/alpha-nvim", commit = "0bb6fc0646bcd1cdb4639737a1cee8d6e08bcc31" }
-    use { "folke/which-key.nvim" }
+    use { "folke/which-key.nvim", commit = "61553aeb3d5ca8c11eea8be6eadf478062982ac9" }
 
     -- Colorschemes
     use { "folke/tokyonight.nvim", commit = "66bfc2e8f754869c7b651f3f47a2ee56ae557764" }
     use { "lunarvim/darkplus.nvim", commit = "13ef9daad28d3cf6c5e793acfc16ddbf456e1c83" }
     use { "tomasiser/vim-code-dark", commit = "f002d6d256a11c14a9de40c45a8ecb75b2292f8a" }
     use { 'folke/lsp-colors.nvim', commit = "4e6da1984d23da88a947805866580c48fc3cc8d7" }
-
 
     -- Cmp
     use { "hrsh7th/nvim-cmp", commit = "b0dff0ec4f2748626aae13f011d1a47071fe9abc" } -- The completion plugin
@@ -69,6 +68,7 @@ return packer.startup(function(use)
     use { "saadparwaiz1/cmp_luasnip", commit = "a9de941bcbda508d0a45d28ae366bb3f08db2e36" } -- snippet completions
     use { "hrsh7th/cmp-nvim-lsp", commit = "3cf38d9c957e95c397b66f91967758b31be4abe6" }
     use { "hrsh7th/cmp-nvim-lua", commit = "d276254e7198ab7d00f117e88e223b4bd8c02d21" }
+    use { "onsails/lspkind.nvim", commit = "c68b3a003483cf382428a43035079f78474cd11e" }
 
     -- Snippets
     use { "L3MON4D3/LuaSnip", commit = "8f8d493e7836f2697df878ef9c128337cbf2bb84" } --snippet engine
@@ -86,6 +86,7 @@ return packer.startup(function(use)
     } -- for formatters and linters
     use {
         "folke/trouble.nvim",
+        commit = "897542f90050c3230856bc6e45de58b94c700bbf",
         requires = "kyazdani42/nvim-web-devicons",
         config = function()
             require("trouble").setup {
@@ -120,15 +121,7 @@ return packer.startup(function(use)
     })
 
     -- motion
-    use {
-        'phaazon/hop.nvim',
-        branch = 'v2', -- optional but strongly recommended
-        config = function()
-            -- you can configure Hop the way you like here; see :h hop-config
-            require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
-        end,
-        commit = "90db1b2c61b820e230599a04fedcd2679e64bd07"
-    }
+    use { "ggandor/leap.nvim", commit = "c5ddd07ff5f436cd8b655154d2a8e8d4c2f29466" }
 
     -- A fancy, configurable, notification manager for Neovim
     use { "rcarriga/nvim-notify", commit = "43c54aec682854b39a7e0e89b4c3ba00426d74a8" }
@@ -139,6 +132,11 @@ return packer.startup(function(use)
 
     -- JSX 增强
     use { "windwp/nvim-ts-autotag", commit = "fdefe46c6807441460f11f11a167a2baf8e4534b" }
+
+    -- Dap
+    use { "mfussenegger/nvim-dap", commit = "61643680dcb771a29073cd432894e2f81a7c2ae3" }
+    use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" },
+        commit = "f7fc98ead677ffed72d4eec331eb439a7bad3bbf" }
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

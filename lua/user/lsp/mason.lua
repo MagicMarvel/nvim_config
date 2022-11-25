@@ -1,4 +1,4 @@
--- 如果想增加新的LSP的支持，只需要把语言服务器的名字写在这里即可
+-- 如果想增加新的LSP的支持，只需要把语言服务器的名字写在这里即可,理论上Mason会自动安装
 -- https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
 local servers = {
     "sumneko_lua",
@@ -12,7 +12,9 @@ local servers = {
     "tailwindcss",
     "clangd",
     "emmet_ls",
-    "eslint"
+    "eslint",
+    "gopls",
+    "marksman"
 }
 
 local settings = {
@@ -30,7 +32,9 @@ local settings = {
 
 require("mason").setup(settings)
 require("mason-lspconfig").setup({
+    -- 在这里填写的语言服务器都会被自动安装
     ensure_installed = servers,
+    -- 这里的意思是lspconfig配置了的语言服务器都会被自动安装
     automatic_installation = true,
 })
 
@@ -42,7 +46,8 @@ end
 local opts = {}
 
 for _, server in pairs(servers) do
-    -- 这里的handle负责配置例如LSP连接成功了以后，配置keymap，配置VIM的出错图标等等
+    -- 这里的handle负责配置例如LSP连接成功了以后，配置keymap，配置VIM的出错图标等等，还可以让语言服务器的格式化能力失效
+    -- 转为null-ls提供格式化，如ts-server prettier
     opts = {
         on_attach = require("user.lsp.handlers").on_attach,
         capabilities = require("user.lsp.handlers").capabilities,
@@ -58,5 +63,6 @@ for _, server in pairs(servers) do
         opts = vim.tbl_deep_extend("force", conf_opts, opts)
     end
 
+    -- lspconfig负责利用我们的配置拉起语言服务器并配置语言服务器与VIM
     lspconfig[server].setup(opts)
 end

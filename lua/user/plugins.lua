@@ -69,6 +69,7 @@ return packer.startup(function(use)
     use { "hrsh7th/cmp-nvim-lsp", commit = "3cf38d9c957e95c397b66f91967758b31be4abe6" }
     use { "hrsh7th/cmp-nvim-lua", commit = "d276254e7198ab7d00f117e88e223b4bd8c02d21" }
     use { "onsails/lspkind.nvim", commit = "c68b3a003483cf382428a43035079f78474cd11e" }
+    use { "hrsh7th/cmp-nvim-lsp-signature-help", commit = "d2768cb1b83de649d57d967085fe73c5e01f8fd7" }
 
     -- Snippets
     use { "L3MON4D3/LuaSnip", commit = "8f8d493e7836f2697df878ef9c128337cbf2bb84" } --snippet engine
@@ -137,6 +138,11 @@ return packer.startup(function(use)
     use { "mfussenegger/nvim-dap", commit = "61643680dcb771a29073cd432894e2f81a7c2ae3" }
     use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" },
         commit = "f7fc98ead677ffed72d4eec331eb439a7bad3bbf" }
+
+    -- 增强quickfix
+    use { 'kevinhwang91/nvim-bqf', ft = 'qf', commit = '3389264042e4590ed32ce26d7e47b17ec4e6e6d5' }
+    -- 平滑滚动
+    use { 'karb94/neoscroll.nvim', commit = "54c5c419f6ee2b35557b3a6a7d631724234ba97a" }
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

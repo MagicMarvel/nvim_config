@@ -20,33 +20,34 @@ if not status_ok then
 end
 
 --   פּ ﯟ   some other good icons
-local kind_icons = {
-    Text = "",
-    Method = "m",
-    Function = "",
-    Constructor = "",
-    Field = "",
-    Variable = "",
-    Class = "",
-    Interface = "",
-    Module = "",
-    Property = "",
-    Unit = "",
-    Value = "",
-    Enum = "",
-    Keyword = "",
-    Snippet = "",
-    Color = "",
-    File = "",
-    Reference = "",
-    Folder = "",
-    EnumMember = "",
-    Constant = "",
-    Struct = "",
-    Event = "",
-    Operator = "",
-    TypeParameter = "",
-}
+-- local kind_icons = {
+--     Text = "",
+--     Method = "m",
+--     Function = "",
+--     Constructor = "",
+--     Field = "",
+--     Variable = "",
+--     Class = "",
+--     Interface = "",
+--     Module = "",
+--     Property = "",
+--     Unit = "",
+--     Value = "",
+--     Enum = "",
+--     Keyword = "",
+--     Snippet = "",
+--     Color = "",
+--     File = "",
+--     Reference = "",
+--     Folder = "",
+--     EnumMember = "",
+--     Constant = "",
+--     Struct = "",
+--     Event = "",
+--     Operator = "",
+--     TypeParameter = "",
+--     Copilot = "",
+-- }
 -- find more here: https://www.nerdfonts.com/cheat-sheet
 cmp.setup {
     enabled = function()
@@ -81,8 +82,9 @@ cmp.setup {
         ["<CR>"] = cmp.mapping.confirm { select = true },
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
-                cmp.select_next_item()
+                cmp.mapping.confirm()
             elseif luasnip.expandable() then
+                -- 如果处于输入snippet的状态下
                 luasnip.expand()
             elseif luasnip.expand_or_jumpable() then
                 luasnip.expand_or_jump()
@@ -135,7 +137,7 @@ cmp.setup {
         { name = "luasnip" },
         { name = "buffer" },
         { name = "path" },
-        { name = "nvim_lsp_signature_help" }
+        { name = "nvim_lsp_signature_help" },
     },
     confirm_opts = {
         behavior = cmp.ConfirmBehavior.Replace,

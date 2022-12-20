@@ -80,9 +80,6 @@ return packer.startup(function(use)
     use { "williamboman/mason.nvim", commit = "c2002d7a6b5a72ba02388548cfaf420b864fbc12" } -- simple to use language server installer
     use { "williamboman/mason-lspconfig.nvim", commit = "0051870dd728f4988110a1b2d47f4a4510213e31" }
     use { "jose-elias-alvarez/null-ls.nvim", commit = "07d4ed4c6b561914aafd787453a685598bec510f",
-        config = function()
-            require("null-ls").setup()
-        end,
         requires = { "nvim-lua/plenary.nvim" }
     } -- for formatters and linters
     use {
@@ -90,11 +87,7 @@ return packer.startup(function(use)
         commit = "897542f90050c3230856bc6e45de58b94c700bbf",
         requires = "kyazdani42/nvim-web-devicons",
         config = function()
-            require("trouble").setup {
-                -- your configuration comes here
-                -- or leave it empty to use the default settings
-                -- refer to the configuration section below
-            }
+            require("trouble").setup {}
         end
     }
     use { "RRethy/vim-illuminate", commit = "a2e8476af3f3e993bb0d6477438aad3096512e42" }
@@ -144,6 +137,18 @@ return packer.startup(function(use)
     -- 平滑滚动
     use { 'karb94/neoscroll.nvim', commit = "54c5c419f6ee2b35557b3a6a7d631724234ba97a" }
 
+    -- todo优化
+    use {
+        "folke/todo-comments.nvim",
+        requires = "nvim-lua/plenary.nvim",
+        config = function()
+            require("todo-comments").setup {
+                -- your configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
+            }
+        end
+    }
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then

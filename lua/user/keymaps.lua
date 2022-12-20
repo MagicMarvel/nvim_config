@@ -32,10 +32,6 @@ keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
-keymap("i", "<C-h>", "<esc><C-w>h", opts)
-keymap("i", "<C-j>", "<esc><C-w>j", opts)
-keymap("i", "<C-k>", "<esc><C-w>k", opts)
-keymap("i", "<C-l>", "<esc><C-w>l", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
@@ -59,6 +55,7 @@ keymap("n", "<C-a>", "<esc>ggVG", opts)
 keymap("i", "jk", "<ESC>", opts)
 keymap("i", "kj", "<ESC>", opts)
 keymap("i", "jj", "<ESC>", opts)
+keymap("i", "kk", "<ESC>", opts)
 
 -- Visual --
 -- Stay in indent mode

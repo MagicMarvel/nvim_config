@@ -31,6 +31,8 @@ end
 
 -- Have packer use a popup window
 packer.init({
+    -- 快照保存地点，默认在~/.cache/nvim/packer.nvim里
+    -- snapshot_path = join_paths(vim.fn.stdpath('config')),
     display = {
         open_fn = function()
             return require("packer.util").float({ border = "rounded" })
@@ -44,7 +46,7 @@ return packer.startup(function(use)
     use { "nvim-lua/plenary.nvim", commit = "4b7e52044bbb84242158d977a50c4cbcd85070c7" } -- Useful lua functions used by lots of plugins
     use { "windwp/nvim-autopairs", commit = "4fc96c8f3df89b6d23e5092d31c866c53a346347" } -- Autopairs, integrates with both cmp and treesitter
     use { "kyazdani42/nvim-web-devicons", commit = "563f3635c2d8a7be7933b9e547f7c178ba0d4352" }
-    use { "kyazdani42/nvim-tree.lua", commit = "7282f7de8aedf861fe0162a559fc2b214383c51c" }
+    use { "kyazdani42/nvim-tree.lua" }
     use { "akinsho/bufferline.nvim", commit = "83bf4dc7bff642e145c8b4547aa596803a8b4dc4" }
     use { "moll/vim-bbye", commit = "25ef93ac5a87526111f43e5110675032dbcacf56" }
     use { "nvim-lualine/lualine.nvim", commit = "a52f078026b27694d2290e34efa61a6e4a690621" }

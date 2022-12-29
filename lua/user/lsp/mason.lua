@@ -12,7 +12,7 @@ local servers = {
     "tailwindcss",
     "clangd",
     "emmet_ls",
-    "eslint",
+    -- "eslint",
     "gopls",
     "marksman"
 }

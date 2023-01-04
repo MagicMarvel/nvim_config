@@ -6,6 +6,7 @@ local options = {
     conceallevel = 0, -- so that `` is visible in markdown files
     fileencoding = "utf-8", -- the encoding written to a file
     hlsearch = true, -- highlight all matches on previous search pattern
+    history = 200, -- EX命令在内存中保存的条数
     ignorecase = true, -- ignore case in search patterns
     mouse = "a", -- allow the mouse to be used in neovim
     pumheight = 10, -- pop up menu height
@@ -37,6 +38,8 @@ local options = {
     sidescrolloff = 8, -- minimal number of screen columns either side of cursor if wrap is `false`
     guifont = "monospace:h17", -- the font used in graphical neovim applications
     whichwrap = "bs<>[]hl", -- which "horizontal" keys are allowed to travel to prev/next line
+    wildmenu = true, -- zsh自动补全菜单
+    wildmode = "full", -- zsh自动补全菜单
 }
 
 for k, v in pairs(options) do

@@ -14,7 +14,9 @@ local servers = {
     "emmet_ls",
     -- "eslint",
     "gopls",
-    "marksman"
+    "marksman",
+    -- support XML
+    "lemminx"
 }
 
 local settings = {

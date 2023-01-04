@@ -96,6 +96,7 @@ local mappings = {
     },
     ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
     ["p"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
+    ["r"] = { [[<cmd>source $MYVIMRC<cr>]], "Reload Config" },
 
     P = {
         name = "Packer",

@@ -11,6 +11,8 @@ local formatting = null_ls.builtins.formatting
 
 null_ls.setup({
     debug = false,
+    -- filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+    filetypes = { "markdown", "text" },
     sources = {
         -- 设置4格缩进
         formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote", "--tab-width=4" } })

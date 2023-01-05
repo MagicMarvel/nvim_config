@@ -22,9 +22,13 @@ local options = {
     undofile = true, -- enable persistent undo
     updatetime = 300, -- faster completion (4000ms default)
     writebackup = false, -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
-    expandtab = true, -- convert tabs to spaces
-    shiftwidth = 4, -- the number of spaces inserted for each indentation
-    tabstop = 4, -- insert 2 spaces for a tab
+
+    expandtab = true, -- 是否需要将tab替换为空格
+    -- shiftwidth governs indentation via >> and friends (as said in the docs). set shiftwidth=8 makes it so that each >> you do will indent a line 8 character blocks more to the right. Whether it uses tab bytes or space bytes is actually up to a few settings: if noexpandtab is set, it tries its best to use tab bytes alone. If shiftwidth is not divisible by tabstop (e.g. you have set noexpandtab shiftwidth=6 tabstop=4 for some reason), it will use a combination of tabs and spaces to get the proper indent. If expandtab is set, then it will use space bytes alone.
+    shiftwidth = 4, -- 进行缩进的时候 `>>` 插入几个字符，不管理tab输入时候，具体插入tab还是空格，取决于是否有设置expandtab，如果有直接插入空格，没有的话优先插入tab，如果shiftwidth的值（6）大于tabstop（4），那就会先插入一个tab再插入2个空格
+    -- tabstop doesn't necessarily mean that a tab byte (\x09) will be replaced with a number of space bytes (\x20). It's expandtab that governs whether that happens. tabstop means how long each tabstop will be. set tabstop=8 makes it so that a line starting with a tab byte will appear to be indented 8 character blocks from the left edge of the screen.
+    tabstop = 4, -- 一个tab显示为几个字符的宽度
+    softtabstop = -1, -- 管理输入一个tab的时候，输入几个空格，当 softtabstop 选项值小于 tabstop 选项值时，第一次按 Tab 键，会插入 softtabstop 选项值对应的多个空格，当插入的空格个数到达 tabstop 指定的宽度时，会删除插入的空格，替换成一个 tab 字符，负数则为shiftwidth的值
     cursorline = true, -- highlight the current line
     number = true, -- set numbered lines
     relativenumber = false, -- set relative numbered lines

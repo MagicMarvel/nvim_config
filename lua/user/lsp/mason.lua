@@ -16,7 +16,8 @@ local servers = {
     "gopls",
     "marksman",
     -- support XML
-    "lemminx"
+    "lemminx",
+    "dockerls"
 }
 
 local settings = {

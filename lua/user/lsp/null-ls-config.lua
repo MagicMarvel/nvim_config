@@ -15,8 +15,10 @@ null_ls.setup({
     filetypes = { "markdown", "text" },
     sources = {
         -- 设置4格缩进
-        formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote", "--tab-width=4" } })
-
+        formatting.prettier.with({ filetypes = { "html", "javascript", "javascriptreact", "typescript", "typescriptreact",
+            "css", "vue" },
+            extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote", "--tab-width=4" } }),
+        formatting.yamlfmt
     },
     on_attach = function(client, bufnr)
         -- 连接上语言服务器后，开启保存就自动格式化的配置

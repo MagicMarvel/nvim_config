@@ -11,13 +11,14 @@ local servers = {
     "yamlls",
     "tailwindcss",
     "clangd",
-    "emmet_ls",
+    -- "emmet_ls",
     -- "eslint",
     "gopls",
     "marksman",
     -- support XML
     "lemminx",
-    "dockerls"
+    "dockerls",
+    "volar"
 }
 
 local settings = {
